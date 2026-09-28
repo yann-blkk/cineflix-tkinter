@@ -1,0 +1,209 @@
+[
+  {
+    "id": 1,
+    "titulo": "Central do Brasil",
+    "genero": "Drama",
+    "ano": 1998,
+    "duracao": 113,
+    "classificacao": "12",
+    "sinopse": "Uma ex-professora que escreve cartas para analfabetos na estação Central do Brasil acompanha um menino em busca do pai pelo sertão.",
+    "na_lista": false,
+    "assistido": false,
+    "avaliacoes": [
+      {
+        "nota": 5,
+        "comentario": "Emocionante do começo ao fim.",
+        "data": "20/09/2026"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "Cidade de Deus",
+    "genero": "Drama",
+    "ano": 2002,
+    "duracao": 130,
+    "classificacao": "16",
+    "sinopse": "Buscapé cresce em uma comunidade do Rio de Janeiro e registra com sua câmera a escalada do crime ao longo de três décadas.",
+    "na_lista": false,
+    "assistido": true,
+    "avaliacoes": [
+      {
+        "nota": 5,
+        "comentario": "Obra-prima do cinema nacional.",
+        "data": "20/09/2026"
+      },
+      {
+        "nota": 4,
+        "comentario": "",
+        "data": "20/09/2026"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "titulo": "O Auto da Compadecida",
+    "genero": "Comédia",
+    "ano": 2000,
+    "duracao": 104,
+    "classificacao": "12",
+    "sinopse": "João Grilo e Chicó aplicam golpes em uma pequena cidade do sertão nordestino até serem levados a um julgamento inusitado.",
+    "na_lista": false,
+    "assistido": false,
+    "avaliacoes": [
+      {
+        "nota": 5,
+        "comentario": "Não sei, só sei que foi assim!",
+        "data": "20/09/2026"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "titulo": "A Viagem de Chihiro",
+    "genero": "Animação",
+    "ano": 2001,
+    "duracao": 125,
+    "classificacao": "L",
+    "sinopse": "Uma menina fica presa em um mundo de espíritos e precisa trabalhar em uma casa de banhos para salvar os pais.",
+    "na_lista": false,
+    "assistido": true,
+    "avaliacoes": [
+      {
+        "nota": 5,
+        "comentario": "Visual lindo.",
+        "data": "20/09/2026"
+      },
+      {
+        "nota": 4,
+        "comentario": "Ótimo para ver em família.",
+        "data": "20/09/2026"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "titulo": "Interestelar",
+    "genero": "Ficção científica",
+    "ano": 2014,
+    "duracao": 169,
+    "classificacao": "10",
+    "sinopse": "Um grupo de exploradores atravessa um buraco de minhoca em busca de um novo lar para a humanidade.",
+    "na_lista": true,
+    "assistido": false,
+    "avaliacoes": [
+      {
+        "nota": 4,
+        "comentario": "A trilha sonora é incrível.",
+        "data": "20/09/2026"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "titulo": "De Volta para o Futuro",
+    "genero": "Aventura",
+    "ano": 1985,
+    "duracao": 116,
+    "classificacao": "L",
+    "sinopse": "Um adolescente viaja acidentalmente ao passado em um carro-máquina do tempo e precisa garantir que seus pais se conheçam.",
+    "na_lista": false,
+    "assistido": false,
+    "avaliacoes": []
+  },
+  {
+    "id": 7,
+    "titulo": "Parasita",
+    "genero": "Suspense",
+    "ano": 2019,
+    "duracao": 132,
+    "classificacao": "16",
+    "sinopse": "Uma família pobre se infiltra, aos poucos, na rotina de uma família rica, até que um segredo muda tudo.",
+    "na_lista": false,
+    "assistido": false,
+    "avaliacoes": [
+      {
+        "nota": 5,
+        "comentario": "",
+        "data": "20/09/2026"
+      },
+      {
+        "nota": 4,
+        "comentario": "Final surpreendente.",
+        "data": "20/09/2026"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "titulo": "Toy Story",
+    "genero": "Animação",
+    "ano": 1995,
+    "duracao": 81,
+    "classificacao": "L",
+    "sinopse": "Os brinquedos de Andy ganham vida quando ninguém está olhando, e a chegada de um astronauta abala a liderança do cowboy Woody.",
+    "na_lista": false,
+    "assistido": false,
+    "avaliacoes": []
+  },
+  {
+    "id": 9,
+    "titulo": "O Senhor dos Anéis: A Sociedade do Anel",
+    "genero": "Fantasia",
+    "ano": 2001,
+    "duracao": 178,
+    "classificacao": "12",
+    "sinopse": "Um jovem hobbit parte em uma jornada para destruir um anel que pode dar poder absoluto ao senhor do mal.",
+    "na_lista": true,
+    "assistido": false,
+    "avaliacoes": []
+  },
+  {
+    "id": 10,
+    "titulo": "Mad Max: Estrada da Fúria",
+    "genero": "Ação",
+    "ano": 2015,
+    "duracao": 120,
+    "classificacao": "16",
+    "sinopse": "Em um deserto pós-apocalíptico, Max e a Imperatriz Furiosa fogem de um tirano em uma perseguição sem fim.",
+    "na_lista": false,
+    "assistido": false,
+    "avaliacoes": []
+  },
+  {
+    "id": 11,
+    "titulo": "Corra!",
+    "genero": "Terror",
+    "ano": 2017,
+    "duracao": 104,
+    "classificacao": "14",
+    "sinopse": "Um jovem visita a família da namorada e percebe que o fim de semana esconde algo muito perturbador.",
+    "na_lista": true,
+    "assistido": false,
+    "avaliacoes": []
+  },
+  {
+    "id": 12,
+    "titulo": "Diário de uma Paixão",
+    "genero": "Romance",
+    "ano": 2004,
+    "duracao": 123,
+    "classificacao": "12",
+    "sinopse": "Um senhor lê para uma paciente a história de amor de dois jovens separados pela diferença social.",
+    "na_lista": false,
+    "assistido": false,
+    "avaliacoes": []
+  },
+  {
+    "id": 13,
+    "titulo": "Sahur",
+    "genero": "Aventura",
+    "ano": 2002,
+    "duracao": 67,
+    "classificacao": "10",
+    "sinopse": "sahur",
+    "na_lista": false,
+    "assistido": false,
+    "avaliacoes": []
+  }
+]
