@@ -1,5 +1,3 @@
-"""Interface gráfica do CineFlix (Tkinter + ttk)."""
-
 import tkinter as tk
 from datetime import date
 from tkinter import messagebox, ttk
@@ -19,14 +17,13 @@ class AppCineFlix(tk.Tk):
     def __init__(self, catalogo):
         super().__init__()
         self.catalogo = catalogo
-        self.id_em_edicao = None  # None = cadastrando um filme novo
+        self.id_em_edicao = None
         self.title("CineFlix — Streaming de filmes")
         self.geometry("1100x700")
         self.minsize(900, 620)
         self.configure(bg=FUNDO)
         self._criar_estilo()
 
-        # a janela principal usa só pack; cada aba usa grid por dentro
         ttk.Label(self, text="CINEFLIX", foreground=VERMELHO,
                   font=(FONTE, 24, "bold")).pack(anchor="w", padx=16, pady=(10, 0))
         self.status = tk.StringVar()
@@ -52,7 +49,7 @@ class AppCineFlix(tk.Tk):
 
     def _criar_estilo(self):
         estilo = ttk.Style(self)
-        estilo.theme_use("clam")  # o tema clam permite trocar as cores
+        estilo.theme_use("clam")
         estilo.configure(".", background=FUNDO, foreground=TEXTO, fieldbackground=CAMPO,
                          bordercolor=CAMPO, lightcolor=CAMPO, darkcolor=CAMPO,
                          arrowcolor=TEXTO, insertcolor=TEXTO, font=(FONTE, 10))
@@ -77,7 +74,6 @@ class AppCineFlix(tk.Tk):
         self.option_add("*TCombobox*Listbox.background", CAMPO)
         self.option_add("*TCombobox*Listbox.foreground", TEXTO)
 
-    # ---------------- aba Catálogo ----------------
     def _criar_catalogo(self):
         aba = ttk.Frame(self.abas, padding=10)
         self.abas.add(aba, text="Catálogo")
@@ -120,7 +116,6 @@ class AppCineFlix(tk.Tk):
         self.tabela.bind("<Return>", lambda e: self.assistir())
         self.tabela.bind("<Delete>", lambda e: self.excluir_filme())
 
-        # painel de detalhes: widgets empilhados com pack
         painel = ttk.Frame(aba, style="Painel.TFrame", padding=14, width=320)
         painel.grid(row=1, column=2, rowspan=2, sticky="ns", padx=(10, 0))
         painel.pack_propagate(False)
@@ -200,9 +195,7 @@ class AppCineFlix(tk.Tk):
         for a in reversed(filme["avaliacoes"]):
             self.lista_avaliacoes.insert("end", f"{'★' * a['nota']}  {a['data']}  {a['comentario']}")
 
-    # ---------------- ações sobre o filme selecionado ----------------
     def assistir(self):
-        """Abre um player simulado: a barra enche em ~8 s e o filme vira 'assistido'."""
         filme = self.filme_selecionado()
         if filme is None:
             return
@@ -216,11 +209,11 @@ class AppCineFlix(tk.Tk):
         barra.pack(fill="x", padx=16, pady=16)
 
         def avancar():
-            if not player.winfo_exists():   # o usuário fechou o player
+            if not player.winfo_exists():
                 return
             barra["value"] += 1
             if barra["value"] < 100:
-                player.after(80, avancar)   # agenda o próximo passo sem travar a janela
+                player.after(80, avancar)
             else:
                 player.destroy()
                 if self.executar(lambda: self.catalogo.marcar_assistido(filme["id"])):
@@ -256,7 +249,6 @@ class AppCineFlix(tk.Tk):
                 self.preencher_formulario()
             self.status.set(f"“{filme['titulo']}” foi excluído.")
 
-    # ---------------- aba Cadastro ----------------
     def _criar_cadastro(self):
         aba = ttk.Frame(self.abas, padding=16)
         self.abas.add(aba, text="Cadastro")
@@ -270,7 +262,6 @@ class AppCineFlix(tk.Tk):
                             variable=self.campos["classificacao"]).pack(side="left", padx=(0, 12))
         self.sinopse = tk.Text(aba, width=60, height=5, wrap="word", bg=CAMPO, fg=TEXTO,
                                insertbackground=TEXTO, relief="flat", font=(FONTE, 10))
-        # Tab dentro do Text inseriria uma tabulação; aqui ele passa ao próximo campo
         self.sinopse.bind("<Tab>", lambda e: (e.widget.tk_focusNext().focus_set(), "break")[1])
         self.entrada_titulo = ttk.Entry(aba, textvariable=self.campos["titulo"], width=50)
 
@@ -302,7 +293,6 @@ class AppCineFlix(tk.Tk):
         return dados
 
     def preencher_formulario(self, filme=None):
-        """Mostra um filme para edição, ou deixa o formulário vazio (filme=None)."""
         self.id_em_edicao = filme["id"] if filme else None
         for campo, var in self.campos.items():
             var.set(filme[campo] if filme else "")
@@ -310,7 +300,7 @@ class AppCineFlix(tk.Tk):
         self.sinopse.insert("1.0", filme["sinopse"] if filme else "")
         self.titulo_form.configure(text=f"Editando: {filme['titulo']}" if filme
                                    else "Cadastrar novo filme")
-        self.formulario_original = self.ler_formulario()  # para detectar alterações
+        self.formulario_original = self.ler_formulario()
 
     def formulario_alterado(self):
         return self.ler_formulario() != self.formulario_original
@@ -338,7 +328,6 @@ class AppCineFlix(tk.Tk):
         self.avisar(f"Filme “{dados['titulo'].strip()}” {acao} com sucesso.")
         return True
 
-    # ---------------- aba Resumo ----------------
     def _criar_resumo(self):
         aba = ttk.Frame(self.abas, padding=16)
         self.abas.add(aba, text="Resumo")
@@ -364,10 +353,7 @@ class AppCineFlix(tk.Tk):
         self.destaque.configure(text=f"Destaque: {melhor['titulo']} (média {media(melhor):.1f})"
                                 if melhor else "Ainda não há avaliações.")
 
-    # ---------------- utilidades ----------------
     def executar(self, operacao):
-        """Roda uma operação que altera os dados. Erros de validação (ValueError) ou de
-        gravação (OSError) viram uma mensagem, sem fechar o aplicativo."""
         try:
             operacao()
         except (ValueError, OSError) as erro:
@@ -389,5 +375,5 @@ class AppCineFlix(tk.Tk):
             resposta = messagebox.askyesnocancel(
                 "Sair", "O cadastro tem alterações não salvas. Salvar antes de sair?")
             if resposta is None or (resposta and not self.salvar_filme()):
-                return  # cancelou, ou tentou salvar e os dados eram inválidos
+                return
         self.destroy()

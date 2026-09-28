@@ -21,7 +21,6 @@ class TestCatalogo(unittest.TestCase):
         self.pasta.cleanup()
 
     def reabrir(self):
-        """Simula fechar e abrir o programa lendo o mesmo arquivo."""
         novo = Catalogo(self.arquivo)
         novo.carregar()
         return novo

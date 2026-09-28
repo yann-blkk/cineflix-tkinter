@@ -1,5 +1,3 @@
-"""Dados do CineFlix, guardados em um arquivo JSON."""
-
 import json
 import os
 from datetime import date
@@ -19,8 +17,6 @@ class Catalogo:
         self.filmes = []
 
     def carregar(self):
-        """Lê o JSON. Se estiver corrompido, guarda uma cópia .bak, começa vazio
-        e devolve um aviso para o usuário (senão devolve None)."""
         if not self.arquivo.exists():
             return None
         try:
@@ -29,12 +25,10 @@ class Catalogo:
         except json.JSONDecodeError:
             os.replace(self.arquivo, self.arquivo.with_suffix(".bak"))
             self.filmes = []
-            return "O arquivo de dados estava corrompido. Ele foi guardado como filmes.bak e o catálogo começou vazio."
+            return
         return None
 
     def salvar(self):
-        """Grava num arquivo temporário e só depois troca pelo original,
-        para não estragar os dados se o programa fechar no meio da gravação."""
         self.arquivo.parent.mkdir(exist_ok=True)
         temporario = self.arquivo.with_suffix(".tmp")
         with open(temporario, "w", encoding="utf-8") as f:
@@ -45,7 +39,6 @@ class Catalogo:
         return next((f for f in self.filmes if f["id"] == id_filme), None)
 
     def salvar_filme(self, dados, id_filme=None):
-        """Cadastra um filme novo (id_filme=None) ou altera um existente."""
         for f in self.filmes:
             if (f["titulo"].lower(), f["ano"]) == (dados["titulo"].lower(), dados["ano"]) and f["id"] != id_filme:
                 raise ValueError("Já existe um filme com esse título e ano.")

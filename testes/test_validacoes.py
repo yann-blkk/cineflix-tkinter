@@ -18,8 +18,8 @@ def filme(**alteracoes):
 class TestValidacoes(unittest.TestCase):
     def test_filme_valido_e_convertido(self):
         resultado = filme()
-        self.assertEqual(resultado["titulo"], "Matrix")  # espaços removidos
-        self.assertEqual(resultado["ano"], 1999)         # texto virou inteiro
+        self.assertEqual(resultado["titulo"], "Matrix")
+        self.assertEqual(resultado["ano"], 1999)
 
     def test_campos_obrigatorios(self):
         for campo in ("titulo", "genero", "ano", "duracao", "classificacao"):

@@ -1,5 +1,3 @@
-"""Regras de validação do CineFlix. Erros viram ValueError com mensagem para o usuário."""
-
 from datetime import date
 
 GENEROS = ["Ação", "Animação", "Aventura", "Comédia", "Documentário", "Drama",
@@ -18,7 +16,6 @@ def para_inteiro(texto, campo, minimo, maximo):
 
 
 def validar_filme(campos):
-    """Recebe os textos do formulário e devolve o filme pronto para salvar."""
     titulo = campos["titulo"].strip()
     sinopse = campos["sinopse"].strip()
     if not titulo:
