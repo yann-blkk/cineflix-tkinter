@@ -1,5 +1,9 @@
 # CineFlix — streaming de filmes com Tkinter
 
+Criadores: 
+Yan Lucas
+Henrique Falcão 
+
 Aplicativo desktop em Python, no estilo Netflix, para organizar um catálogo de filmes. Permite "assistir" num player simulado, avaliar com estrelas e montar a **Minha Lista** (lista de desejos). Foi desenvolvido para a atividade *Aplicativo Desktop com Python e Tkinter* (SENAI).
 
 ## Objetivo
